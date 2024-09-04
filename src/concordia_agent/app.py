@@ -2,9 +2,9 @@ import sentence_transformers
 import os
 import dotenv
 
-from concordia.language_model import gpt_model
+from concordia_agent.language_model import gpt_model
 
-from agent import get_agent
+from concordia_agent.simple_agent import get_agent
 
 dotenv.load_dotenv()
 
