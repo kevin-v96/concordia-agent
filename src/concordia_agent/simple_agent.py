@@ -1,6 +1,5 @@
 import collections
 from concordia.typing import entity
-
 from concordia.language_model import language_model
 
 def make_prompt(deque: collections.deque[str]) -> str:
