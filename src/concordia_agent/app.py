@@ -7,7 +7,7 @@ warnings.filterwarnings("ignore")
 
 from concordia.language_model import gpt_model
 
-from concordia_agent.simple_agent_with_associative_memory import get_agent
+from concordia_agent.entity_component_agent import get_agent
 
 dotenv.load_dotenv()
 
@@ -25,10 +25,11 @@ agent = get_agent(model, embedder)
 
 agent.observe("You absolutely hate apples and would never willingly eat them.")
 agent.observe("You don't particularly like bananas.")
-# Only the next 5 observations will be retrieved as "recent memories"
+# The previous memories will be revtrieved associatively, even though they are
+# past the recency limit.
 agent.observe("You are in a room.")
 agent.observe("The room has only a table in it.")
 agent.observe("On the table there are two fruits: an apple and a banana.")
-agent.observe("The apple is shiny red and looks absolutely irresistible!")
+agent.observe("The apple is shinny red and looks absolutely irresistible!")
 agent.observe("The banana is slightly past its prime.")
 print(agent.act())
